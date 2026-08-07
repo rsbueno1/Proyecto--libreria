@@ -2,7 +2,7 @@
 require_once 'conexion.php';
 
 $stmt = $pdo->query("SELECT * FROM autores");
-$autores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$autores = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="es">
