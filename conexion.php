@@ -1,21 +1,15 @@
 <?php
-// Configuración de parámetros de la base de datos local
-$host     = 'localhost';
-$dbname   = 'libreria'; // Nombre de la base de datos que importaste
-$username = 'root';     // Usuario por defecto en XAMPP/WAMP
-$password = '';         // Contraseña por defecto (en XAMPP suele ir vacía)
+// Sustituye los valores entre comillas con los datos reales de tu panel de InfinityFree
+$host = "sql312.infinityfree.com";     // NO uses "localhost". Usa el host que empieza con sql...
+$dbname = "if0_42597179_libreria";     // Nombre completo de la base de datos creada
+$user = "if0_42597179";              // Tu usuario MySQL de InfinityFree
+$pass = "gnXwloi9MxdHE1";     // Contraseña de tu cuenta de InfinityFree
 
 try {
-    // Creación de la instancia PDO con codificación UTF-8
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    
-    // Configurar PDO para que lance excepciones en caso de error
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    // Descomenta la siguiente línea solo si quieres verificar visualmente la conexión:
-    // echo "¡Conexión exitosa a la base de datos!";
+    $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
-    // Si hay error en la conexión, detiene la ejecución y muestra el mensaje
     die("Error en la conexión a la base de datos: " . $e->getMessage());
 }
 ?>
